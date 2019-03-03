@@ -46,13 +46,13 @@ class Courses extends Component {
         );
         if(this.state.selectedCourse)
         {
-            current= ( <Route path={this.props.match.url+'/:kd'} component={Course}/>
+            //current= ( <Route path={this.props.match.url+'/:kd'} exact component={Course}/>
 
                        // <Link to={'/courses/'+this.state.selectedCourse.id}>
                          // <Course className="Course"
                            //       courseId={this.state.selectedCourse.id}/>
                         ///</Link>
-                      );
+                     //);
         }
 
         return (
@@ -61,6 +61,9 @@ class Courses extends Component {
                 <section className="Courses">
                     {current}
                 </section>
+                {/* */}
+                <Route path={this.props.match.url+'/:kd'} exact component={Course}/>
+
             </div>
         );
     }

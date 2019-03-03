@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter, Route, NavLink} from "react-router-dom";
+import {BrowserRouter, Route, NavLink, Switch, Redirect} from "react-router-dom";
 
 import Courses from './containers/Courses/Courses';
 import Users from './containers/Users/Users';
@@ -22,11 +22,16 @@ class App extends Component {
 
                   <nav>
                     <NavLink to="/users">Users</NavLink> |&nbsp;
-                    <NavLink to="/courses">Courses</NavLink>
+                    <NavLink to="/courses">Courses</NavLink> |&nbsp;
+                    <NavLink to="/all-courses">All Courses</NavLink>
                   </nav>
 
-                  <Route path="/users" component={Users}/>
-                  <Route path="/courses" component={Courses}/>
+                  <Switch>
+                    <Route path="/users" exact component={Users}/>
+                    <Route path="/courses" component={Courses}/>
+                    <Redirect from="/all-courses" to="/courses"/>
+                    <Route render={()=><h1>Page not found</h1>}/>
+                  </Switch>
                 </div>
               </BrowserRouter>
     );
