@@ -14,15 +14,11 @@ class Courses extends Component {
         selectedCourse:null,
     }
     componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log("working")
-
-        if(this.state.selectedCourse && prevProps.selectedCourse !== this.state.selectedCourse)
+        //console.log(prevState.selectedCourse);
+        //console.log( this.state.selectedCourse);
+        if(this.state.selectedCourse && prevState.selectedCourse === this.state.selectedCourse)
         {
-            //this.setState({selectedCourse:null});
-            console.log(this.state.selectedCourse);
-
-            console.log('not working');
-
+            this.setState({selectedCourse:null});
         }
     }
 
