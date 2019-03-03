@@ -45,8 +45,7 @@ class Courses extends Component {
         if(this.state.selectedCourse)
         {
             current=<Course className="Course"
-                            courseId={this.state.selectedCourse.id}
-                            clicked={()=>this.selectCourseHandler(this.state.selectedCourse.id)}/>
+                            courseId={this.state.selectedCourse.id}/>
         }
 
         return (
