@@ -14,9 +14,15 @@ class Courses extends Component {
         selectedCourse:null,
     }
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if(this.state.selectedCourse)
+        console.log("working")
+
+        if(this.state.selectedCourse && prevProps.selectedCourse !== this.state.selectedCourse)
         {
-            this.setState({ selectedCourse:null})
+            //this.setState({selectedCourse:null});
+            console.log(this.state.selectedCourse);
+
+            console.log('not working');
+
         }
     }
 
@@ -24,7 +30,6 @@ class Courses extends Component {
         let selectedCourse=this.state.courses.find(course=>{
             return course.id===id;
         });
-        console.log(selectedCourse);
         this.setState({selectedCourse:selectedCourse})
     };
 
