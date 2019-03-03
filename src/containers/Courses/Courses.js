@@ -19,6 +19,7 @@ class Courses extends Component {
         if(this.state.selectedCourse && prevState.selectedCourse === this.state.selectedCourse)
         {
             this.setState({selectedCourse:null});
+            //console.log('working')
         }
     }
 
@@ -34,9 +35,10 @@ class Courses extends Component {
         let current=(
                 this.state.courses.map( course => {
                     return(
-                        <Link to={'/courses/'+course.id} exact key={course.id}>
+                        <Link to={this.props.match.url+'/'+course.id} exact key={course.id}>
                             <Course className="Course"
                                     courseId={course.id}
+                                    courseTitle={course.title}
                                     clicked={()=>this.selectCourseHandler(course.id)} />
                         </Link>
                     );
@@ -44,8 +46,13 @@ class Courses extends Component {
         );
         if(this.state.selectedCourse)
         {
-            current=<Course className="Course"
-                            courseId={this.state.selectedCourse.id}/>
+            current= ( <Route path={this.props.match.url+'/:kd'} component={Course}/>
+
+                       // <Link to={'/courses/'+this.state.selectedCourse.id}>
+                         // <Course className="Course"
+                           //       courseId={this.state.selectedCourse.id}/>
+                        ///</Link>
+                      );
         }
 
         return (
@@ -59,4 +66,4 @@ class Courses extends Component {
     }
 }
 
-export default Courses;
+export default withRouter(Courses);
