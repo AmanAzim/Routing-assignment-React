@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {BrowserRouter, Route, NavLink, Switch, Redirect} from "react-router-dom";
-
+import './App.css'
 import Courses from './containers/Courses/Courses';
 import Users from './containers/Users/Users';
 
