@@ -35,7 +35,7 @@ class Courses extends Component {
         let current=(
                 this.state.courses.map( course => {
                     return(
-                        <Link to={this.props.match.url+'/'+course.id} exact key={course.id}>
+                        <Link to={this.props.match.url+'/'+course.id+'?course='+course.title} exact key={course.id}>
                             <Course className="Course"
                                     courseId={course.id}
                                     courseTitle={course.title}
