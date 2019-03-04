@@ -8,26 +8,28 @@ class Course extends Component {
     }
     componentDidMount() {
        this.loadData();
+        console.log('Mounting')
     };
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if(prevState.courseId===this.state.courseId){
             this.loadData();
-        }
     }
 
     loadData=()=>{
         const query=new URLSearchParams(this.props.location.search);
-        let token = query.get('course');
+        let title = query.get('course');
 
         //for (let param of query.entries()) {
         // this.setState({courseTitle:param[1]})
         //}
-        this.setState({courseTitle:token, courseId:+this.props.match.params.kd});
+        if(this.state.courseId!==+this.props.match.params.kd){
+            this.setState({courseTitle:title, courseId:+this.props.match.params.kd});
+        }
+
     }
 
     render () {
 
-        let Title=this.props.courseTitle;
+        {/*let Title=this.props.courseTitle;
         if(this.state.courseTitle){
             Title=this.state.courseTitle
         }
@@ -35,13 +37,13 @@ class Course extends Component {
         let Id=this.props.courseId;
         if(this.state.courseId){
             Id=this.state.courseId;
-        }
+        }*/}
 
 
         return (
-            <div onClick={this.props.clicked}>
-                <h1>{Title}</h1>
-                <p>You selected the Course with ID:{Id}</p>
+            <div >
+                <h1>{this.state.courseTitle}</h1>
+                <p>You selected the Course with ID:{this.state.courseId}</p>
             </div>
         );
     }

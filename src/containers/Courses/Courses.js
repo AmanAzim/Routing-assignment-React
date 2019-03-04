@@ -18,7 +18,7 @@ class Courses extends Component {
         //console.log( this.state.selectedCourse);
         if(this.state.selectedCourse && prevState.selectedCourse === this.state.selectedCourse)
         {
-            this.setState({selectedCourse:null});
+           // this.setState({selectedCourse:null});
             //console.log('working')
         }
     }
@@ -36,23 +36,15 @@ class Courses extends Component {
                 this.state.courses.map( course => {
                     return(
                         <Link to={this.props.match.url+'/'+course.id+'?course='+course.title} exact key={course.id}>
-                            <Course className="Course"
-                                    courseId={course.id}
-                                    courseTitle={course.title}
-                                    clicked={()=>this.selectCourseHandler(course.id)} />
+                            <article className="Course" onClick={()=>this.selectCourseHandler(course.id)}>{course.title}</article>
+                            {/*To just show the courses we should never use <Course/> if we have plan to load them in <Route ../> on click because than it will make problem with its props*/}
                         </Link>
                     );
                 } )
         );
         if(this.state.selectedCourse)
         {
-            //current= ( <Route path={this.props.match.url+'/:kd'} exact component={Course}/>
-
-                       // <Link to={'/courses/'+this.state.selectedCourse.id}>
-                         // <Course className="Course"
-                           //       courseId={this.state.selectedCourse.id}/>
-                        ///</Link>
-                     //);
+            //current=<Route path={this.props.match.url+'/:kd'} exact component={Course}/>;
         }
 
         return (

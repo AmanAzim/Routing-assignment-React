@@ -31,6 +31,7 @@ class App extends Component {
                     <Route path="/courses" component={Courses}/>
                     <Redirect from="/all-courses" to="/courses"/>
                     <Route render={()=><h1>Page not found</h1>}/>
+                    {/*<Router component={ProblemPage}/>*/}
                   </Switch>
                 </div>
               </BrowserRouter>
