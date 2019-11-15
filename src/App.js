@@ -21,7 +21,7 @@ class App extends Component {
                   </ol>
 
                   <nav>
-                    <NavLink to="/users">Users</NavLink> |&nbsp;
+                    <NavLink to="/users" data-testid="user-btn">Users</NavLink> |&nbsp;
                     <NavLink to="/courses">Courses</NavLink> |&nbsp;
                     <NavLink to="/all-courses">All Courses</NavLink>
                   </nav>
